@@ -31,9 +31,9 @@
 			</props>
 		</property>
 
-		<property name="annotatedClasses">
+		<property name="packagesToScan">
 			<list>
-				<value>cn.mrx.food.domain.User</value>
+				<value>cn.mrx.food.domain</value>
 			</list>
 		</property>
 
@@ -42,6 +42,7 @@
 
 	<!-- 将sessionFactory注入dao -->
 	<bean id="userDao" class="cn.mrx.food.dao.impl.UserDaoImpl" p:sessionFactory-ref="sessionFactory"/>
+	<bean id="universityDao" class="cn.mrx.food.dao.impl.UniversityDaoImpl" p:sessionFactory-ref="sessionFactory"/>
 
 	<!-- 将sessionFactory注入事务管理 -->
 	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">

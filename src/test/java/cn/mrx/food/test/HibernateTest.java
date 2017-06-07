@@ -1,6 +1,8 @@
 package cn.mrx.food.test;
 
+import cn.mrx.food.domain.University;
 import cn.mrx.food.domain.User;
+import cn.mrx.food.service.IUniversityService;
 import cn.mrx.food.service.IUserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,15 +26,32 @@ public class HibernateTest {
     @Autowired
     private IUserService iUserService;
 
+    @Autowired
+    private IUniversityService iUniversityService;
+
+    /**
+     * 插入查询
+     */
+    @Test
+    public void test1(){
+        List<User> users = iUserService.loadAll();
+        for (User user : users){
+            System.out.println("------>"+user.getUserName());
+        }
+        List<University> universities = iUniversityService.loadAll();
+        for (University university : universities){
+            System.out.println("------>"+university.getUniversityName());
+        }
+    }
+
     /**
      * 插入测试 & 事务测试
      */
     @Test
     public void test2(){
-        System.out.println("-------------------------------");
-        User user = new User();
-        user.setUserName("user-2");
-        Integer res = iUserService.save(user);
-        System.out.println(res);
+        University university = new University();
+        university.setUniversityName("川大");
+        Integer res = iUniversityService.save(university);
+        System.out.println("----------->"+res);
     }
 }

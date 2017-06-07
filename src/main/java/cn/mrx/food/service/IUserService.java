@@ -9,7 +9,6 @@ import cn.mrx.food.domain.User;
  * @Description:
  * @Version 1.0
  */
-public interface IUserService {
+public interface IUserService extends IBaseService<User>{
 
-    Integer save(User user);
 }

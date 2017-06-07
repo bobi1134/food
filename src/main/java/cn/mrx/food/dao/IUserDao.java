@@ -2,6 +2,8 @@ package cn.mrx.food.dao;
 
 import cn.mrx.food.domain.User;
 
+import java.util.List;
+
 /**
  * @ClassName: IUserDao
  * @Author: Mr.X
@@ -9,7 +11,6 @@ import cn.mrx.food.domain.User;
  * @Description:
  * @Version 1.0
  */
-public interface IUserDao {
+public interface IUserDao extends IBaseDao<User>{
 
-    Integer save(User user);
 }

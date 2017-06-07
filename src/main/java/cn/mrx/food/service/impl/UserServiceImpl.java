@@ -1,6 +1,7 @@
 package cn.mrx.food.service.impl;
 
 import cn.mrx.food.dao.IUserDao;
+import cn.mrx.food.dao.impl.UserDaoImpl;
 import cn.mrx.food.domain.User;
 import cn.mrx.food.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
  * @Version 1.0
  */
 @Service
-@Transactional
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl extends BaseServiceImpl<UserDaoImpl, User> implements IUserService {
 
-    @Autowired private IUserDao iUserDao;
-
-    @Override
-    public Integer save(User user) {
-        return iUserDao.save(user);
-    }
 }
