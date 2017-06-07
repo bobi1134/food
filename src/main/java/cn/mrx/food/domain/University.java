@@ -15,13 +15,19 @@ public class University {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "int COMMENT '主键id'")
     private Integer id;
 
-    @Column(name = "university_name", length = 10, unique = true)
+    @Column(name = "university_name", unique = true, columnDefinition = "varchar(10) COMMENT '大学名称'")
     private String universityName;
 
-    @Column(name = "description", length = 16777216, unique = true)
-    private String description;
+    @Lob
+    @Column(name = "cn_description", unique = true,  columnDefinition = "tinytext COMMENT '大学中文描述'")
+    private String cnDescription;
+
+    @Lob
+    @Column(name = "en_description", unique = true, columnDefinition = "tinytext COMMENT '大学英文描述'")
+    private String enDescription;
 
     public Integer getId() {
         return id;
@@ -39,11 +45,19 @@ public class University {
         this.universityName = universityName;
     }
 
-    public String getDescription() {
-        return description;
+    public String getCnDescription() {
+        return cnDescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setCnDescription(String cnDescription) {
+        this.cnDescription = cnDescription;
+    }
+
+    public String getEnDescription() {
+        return enDescription;
+    }
+
+    public void setEnDescription(String enDescription) {
+        this.enDescription = enDescription;
     }
 }

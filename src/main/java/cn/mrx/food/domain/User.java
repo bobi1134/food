@@ -16,26 +16,26 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "int COMMENT '主键id'")
     private Integer id;
 
-    @Column(name = "user_name", length = 10, unique = true, nullable = false)
+    @Column(name = "user_name", unique = true, nullable = false, columnDefinition = "varchar(10) COMMENT '用户名'")
     private String userName;
 
-    @Column(name = "pwd", length = 10)
+    @Column(name = "pwd", columnDefinition = "varchar(10) COMMENT '密码'")
     private String pwd;
 
-    @Column(name = "really_name")
+    @Column(name = "really_name", columnDefinition = "varchar(10) COMMENT '真实姓名'")
     private String reallyName;
 
-    @Column(name = "reg_time", columnDefinition = "timestamp default CURRENT_TIMESTAMP")
+    @Column(name = "reg_time", columnDefinition = "timestamp default CURRENT_TIMESTAMP COMMENT '注册时间'")
     private Date regTime;
 
-    @Column(name = "enabled", columnDefinition = "int default -1", insertable = false)
+    @Column(name = "enabled", columnDefinition = "int default -1 COMMENT '是否启用,-1未启用(默认),1启用'", insertable = false)
     private Integer enabled;
 
-    @Column(name = "role", columnDefinition = "int default 1", insertable = false)
+    @Column(name = "role", columnDefinition = "int default 3 COMMENT '角色,1超级管理员,2网站管理员,3网站会员(默认)'", insertable = false)
     private Integer role;
-
 
     public Integer getId() {
         return id;
