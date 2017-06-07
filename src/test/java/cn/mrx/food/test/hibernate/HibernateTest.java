@@ -1,4 +1,4 @@
-package cn.mrx.food.test;
+package cn.mrx.food.test.hibernate;
 
 import cn.mrx.food.domain.University;
 import cn.mrx.food.domain.User;
