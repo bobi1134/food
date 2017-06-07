@@ -1,7 +1,6 @@
 package cn.mrx.food.dao.impl;
 
 import cn.mrx.food.dao.IUniversityDao;
-import cn.mrx.food.dao.IUserDao;
 import cn.mrx.food.domain.University;
 
 /**

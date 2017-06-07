@@ -1,8 +1,6 @@
 package cn.mrx.food.dao.impl;
 
 import cn.mrx.food.dao.IBaseDao;
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import java.lang.reflect.ParameterizedType;

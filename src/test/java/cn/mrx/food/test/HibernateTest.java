@@ -50,7 +50,7 @@ public class HibernateTest {
     @Test
     public void test2(){
         University university = new University();
-        university.setUniversityName("川大");
+        university.setUniversityName("四川理工学院");
         Integer res = iUniversityService.save(university);
         System.out.println("----------->"+res);
     }
