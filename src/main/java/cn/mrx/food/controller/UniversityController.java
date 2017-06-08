@@ -24,7 +24,7 @@ public class UniversityController extends BaseController {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @PostMapping("/loadAll")
+    @GetMapping("/loadAll")
     @ResponseBody
     public Object loadAll(){
         return iUniversityService.loadAll();
