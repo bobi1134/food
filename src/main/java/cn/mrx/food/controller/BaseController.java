@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * @ClassName: BaseController
@@ -26,6 +27,9 @@ public class BaseController {
 
     @Autowired
     protected HttpServletRequest request;
+
+    @Autowired
+    protected HttpServletResponse response;
 
     @Autowired
     protected IUserService iUserService;

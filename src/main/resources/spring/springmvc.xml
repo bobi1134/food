@@ -21,4 +21,13 @@
 
     <!-- 静态资源 -->
     <mvc:resources location="/resources/" mapping="/resources/**"/>
+
+    <!-- 拦截器 -->
+    <mvc:interceptors>
+        <!-- 跨域拦截器 -->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="cn.mrx.food.interceptor.AccessInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>
