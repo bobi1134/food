@@ -19,6 +19,10 @@ public class BaseServiceImpl<M extends IBaseDao<T>, T> implements IBaseService<T
     @Autowired
     private M iBaseDao;
 
+    /**
+     * 加载所有信息
+     * @return
+     */
     public List<T> loadAll(){
         try {
             return iBaseDao.loadAll();
@@ -27,6 +31,25 @@ public class BaseServiceImpl<M extends IBaseDao<T>, T> implements IBaseService<T
         }
     }
 
+    /**
+     * 指定查询前几条记录
+     * @param num
+     * @return
+     */
+    @Override
+    public List<T> selectLimit(Integer num) {
+        try {
+            return iBaseDao.selectLimit(num);
+        }catch (Exception e){
+            throw new FoodException("指定查询前几条记录出现异常！");
+        }
+    }
+
+    /**
+     * 保存实体
+     * @param t
+     * @return
+     */
     @Override
     public Integer save(T t) {
         try {

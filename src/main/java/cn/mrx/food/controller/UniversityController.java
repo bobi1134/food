@@ -3,10 +3,7 @@ package cn.mrx.food.controller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,9 +21,14 @@ public class UniversityController extends BaseController {
 
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @GetMapping("/loadAll")
+    /**
+     * 指定查询前几条记录
+     * @param num
+     * @return
+     */
+    @PostMapping("/selectLimit/{num}")
     @ResponseBody
-    public Object loadAll(){
-        return iUniversityService.loadAll();
+    public Object loadAll(@PathVariable("num") Integer num){
+        return iUniversityService.selectLimit(num);
     }
 }

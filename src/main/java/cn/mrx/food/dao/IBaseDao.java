@@ -11,7 +11,23 @@ import java.util.List;
  */
 public interface IBaseDao<T> {
 
+    /**
+     * 加载所有信息
+     * @return
+     */
     public List<T> loadAll();
 
+    /**
+     * 指定查询前几条记录
+     * @param num
+     * @return
+     */
+    public <T> List<T> selectLimit(Integer num);
+
+    /**
+     * 保存实体
+     * @param t
+     * @return
+     */
     public Integer save(T t);
 }
