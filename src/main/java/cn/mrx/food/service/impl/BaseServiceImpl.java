@@ -45,6 +45,15 @@ public class BaseServiceImpl<M extends IBaseDao<T>, T> implements IBaseService<T
         }
     }
 
+    @Override
+    public T get(Integer id) {
+        try {
+            return iBaseDao.get(id);
+        }catch (Exception e){
+            throw new FoodException("");
+        }
+    }
+
     /**
      * 保存实体
      * @param t

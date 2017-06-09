@@ -43,6 +43,7 @@
 	<!-- 将sessionFactory注入dao -->
 	<bean id="userDao" class="cn.mrx.food.dao.impl.UserDaoImpl" p:sessionFactory-ref="sessionFactory"/>
 	<bean id="universityDao" class="cn.mrx.food.dao.impl.UniversityDaoImpl" p:sessionFactory-ref="sessionFactory"/>
+	<bean id="canteenDao" class="cn.mrx.food.dao.impl.CanteenDaoImpl" p:sessionFactory-ref="sessionFactory"/>
 
 	<!-- 将sessionFactory注入事务管理 -->
 	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">

@@ -1,6 +1,7 @@
 package cn.mrx.food.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @ClassName: University
@@ -31,6 +32,10 @@ public class University {
     @Lob
     @Column(name = "en_description", unique = true, columnDefinition = "mediumtext COMMENT '大学英文描述'")
     private String enDescription;
+
+    @OneToMany(targetEntity=Canteen.class, fetch=FetchType.EAGER)
+    @JoinColumn(name="university_id", referencedColumnName="id")
+    private List<Canteen> canteens;
 
     public Integer getId() {
         return id;
@@ -70,5 +75,25 @@ public class University {
 
     public void setEnDescription(String enDescription) {
         this.enDescription = enDescription;
+    }
+
+    public List<Canteen> getCanteens() {
+        return canteens;
+    }
+
+    public void setCanteens(List<Canteen> canteens) {
+        this.canteens = canteens;
+    }
+
+    @Override
+    public String toString() {
+        return "University{" +
+                "id=" + id +
+                ", universityCName='" + universityCName + '\'' +
+                ", universityEName='" + universityEName + '\'' +
+                ", cnDescription='" + cnDescription + '\'' +
+                ", enDescription='" + enDescription + '\'' +
+                ", canteens=" + canteens +
+                '}';
     }
 }

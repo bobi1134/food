@@ -11,4 +11,5 @@ import cn.mrx.food.domain.University;
  * @Version 1.0
  */
 public class UniversityDaoImpl extends BaseDaoImpl<University> implements IUniversityDao {
+
 }

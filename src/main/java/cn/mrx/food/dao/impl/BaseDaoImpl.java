@@ -57,6 +57,11 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements IBaseDao<T> {
         });
     }
 
+    @Override
+    public <T> T get(Integer id) {
+        return (T) getHibernateTemplate().get(clazz, id);
+    }
+
     /**
      * 保存实体
      * @param t

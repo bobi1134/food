@@ -1,10 +1,7 @@
 package cn.mrx.food.test.hibernate;
 
-import cn.mrx.food.dao.IBaseDao;
 import cn.mrx.food.domain.University;
-import cn.mrx.food.domain.User;
 import cn.mrx.food.service.IUniversityService;
-import cn.mrx.food.service.IUserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,42 +11,24 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.List;
 
 /**
- * @ClassName: HibernateTest
+ * @ClassName: UniversityTest
  * @Author: Mr.X
- * @Date: 2017/5/31 22:54
+ * @Date: 2017/6/9 15:29
  * @Description:
  * @Version 1.0
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations={"classpath:spring/spring-service.xml", "classpath:spring/spring-dao.xml"})
-public class HibernateTest {
-
-    @Autowired
-    private IUserService iUserService;
+public class UniversityTest {
 
     @Autowired
     private IUniversityService iUniversityService;
 
     /**
-     * 插入查询
+     * 大学测试
      */
     @Test
     public void test1(){
-        List<User> users = iUserService.loadAll();
-        for (User user : users){
-            System.out.println("------>"+user.getUserName());
-        }
-        List<University> universities = iUniversityService.loadAll();
-        for (University university : universities){
-            System.out.println("------>"+university.getUniversityCName());
-        }
-    }
-
-    /**
-     * 插入测试 & 事务测试
-     */
-    @Test
-    public void test2(){
         University university = new University();
         university.setUniversityCName("四川农业大学");
         university.setUniversityEName("Sichuan Agricultural University");
@@ -68,18 +47,19 @@ public class HibernateTest {
         university.setCnDescription("清华大学（Tsinghua University），简称“清华”，由中华人民共和国教育部直属，中央直管副部级建制，位列“211工程”、“985工程”，入选“珠峰计划”、“2011计划”、“111计划”、“卓越工程师教育培养计划”、“卓越法律人才教育培养计划”、“卓越医生教育培养计划”，为九校联盟、东亚研究型大学协会、环太平洋大学联盟、亚洲大学联盟[1]  、清华大学—剑桥大学—麻省理工学院低碳能源大学联盟成员。");
         university.setEnDescription("Tsinghua University, Tsinghua University, Tsinghua University, Tsinghua University, Tsinghua University, Tsinghua University, Tsinghua University, Tsinghua University, Tsinghua University, Tsinghua University, Tsinghua University, Tsinghua University, Tsinghua University, Tsinghua University, Tsinghua University, Tsinghua University, Tsinghua University, Tsinghua University, \",\" 111 Program \",\" Excellent Engineer Education and Training Program \",\" Excellent Legal Personnel Education and Training Program \",\" Excellence Doctor Education Program \", Nine Schools, East Asian Research University Association, Pacific Rim Union, Asian University Alliance [1], Tsinghua University - Cambridge University - Massachusetts Institute of Technology Low Carbon Energy University Alliance member.");
         System.out.println("----------->"+iUniversityService.save(university));
+    }
 
-//        User user = new User();
-//        user.setUserName("admin");
-//        Integer res = iUserService.save(user);
-//        System.out.println("----------->"+res);
+    @Test
+    public void test2(){
+        List<University> universities = iUniversityService.selectLimit(2);
+        for (University university : universities){
+            System.out.println("---->"+university);
+        }
     }
 
     @Test
     public void test3(){
-        List<University> universities = iUniversityService.selectLimit(2);
-        for (University university : universities){
-            System.out.println("---->"+university.getUniversityCName()+","+university.getUniversityEName());
-        }
+        University university = iUniversityService.get(1);
+        System.out.println("---->"+university.getUniversityCName()+","+university.getUniversityEName());
     }
 }

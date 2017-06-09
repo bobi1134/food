@@ -24,6 +24,8 @@ public interface IBaseService<T> {
      */
     public List<T> selectLimit(Integer num);
 
+    public T get(Integer id);
+
     /**
      * 保存实体
      * @param t

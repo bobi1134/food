@@ -9,5 +9,6 @@ import cn.mrx.food.domain.University;
  * @Description:
  * @Version 1.0
  */
-public interface IUniversityDao{
+public interface IUniversityDao extends IBaseDao<University>{
+
 }

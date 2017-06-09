@@ -24,10 +24,13 @@ public interface IBaseDao<T> {
      */
     public <T> List<T> selectLimit(Integer num);
 
+    public <T> T get(Integer id);
+
     /**
      * 保存实体
      * @param t
      * @return
      */
     public Integer save(T t);
+
 }
