@@ -20,6 +20,20 @@ public class BaseServiceImpl<M extends IBaseDao<T>, T> implements IBaseService<T
     private M iBaseDao;
 
     /**
+     * 根据id加载一个实体
+     * @param id
+     * @return
+     */
+    @Override
+    public T load(Integer id) {
+        try {
+            return iBaseDao.load(id);
+        }catch (Exception e){
+            throw new FoodException("根据id加载一个实体出现异常！");
+        }
+    }
+
+    /**
      * 加载所有信息
      * @return
      */
@@ -45,12 +59,17 @@ public class BaseServiceImpl<M extends IBaseDao<T>, T> implements IBaseService<T
         }
     }
 
+    /**
+     * 根据id获取一个实体
+     * @param id
+     * @return
+     */
     @Override
     public T get(Integer id) {
         try {
             return iBaseDao.get(id);
         }catch (Exception e){
-            throw new FoodException("");
+            throw new FoodException("根据id获取一个实体出现异常！");
         }
     }
 

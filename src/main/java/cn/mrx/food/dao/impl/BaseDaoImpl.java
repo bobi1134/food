@@ -4,6 +4,8 @@ import cn.mrx.food.dao.IBaseDao;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.orm.hibernate5.HibernateCallback;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
@@ -20,6 +22,8 @@ import java.util.List;
  */
 public class BaseDaoImpl<T> extends HibernateDaoSupport implements IBaseDao<T> {
 
+    Logger logger = LoggerFactory.getLogger(this.getClass());
+
     private Class<T> clazz;
 
     public BaseDaoImpl() {
@@ -28,6 +32,18 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements IBaseDao<T> {
         ParameterizedType pType = (ParameterizedType) type;
         Type[] actualTypeArguments = pType.getActualTypeArguments();
         clazz = (Class<T>) (actualTypeArguments[0]);
+        logger.info("\n BaseDaoImpl clazz ---> " + clazz + "\n");
+    }
+
+    /**
+     * 根据id加载一个实体
+     * @param id
+     * @param <T>
+     * @return
+     */
+    @Override
+    public <T> T load(Integer id) {
+        return (T) getHibernateTemplate().load(clazz, id);
     }
 
     /**
@@ -57,6 +73,12 @@ public class BaseDaoImpl<T> extends HibernateDaoSupport implements IBaseDao<T> {
         });
     }
 
+    /**
+     * 根据id获取一个实体
+     * @param id
+     * @param <T>
+     * @return
+     */
     @Override
     public <T> T get(Integer id) {
         return (T) getHibernateTemplate().get(clazz, id);

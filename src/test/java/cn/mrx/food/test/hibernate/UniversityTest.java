@@ -1,5 +1,6 @@
 package cn.mrx.food.test.hibernate;
 
+import cn.mrx.food.domain.Canteen;
 import cn.mrx.food.domain.University;
 import cn.mrx.food.service.IUniversityService;
 import org.junit.Test;
@@ -60,6 +61,15 @@ public class UniversityTest {
     @Test
     public void test3(){
         University university = iUniversityService.get(1);
-        System.out.println("---->"+university.getUniversityCName()+","+university.getUniversityEName());
+        System.out.println("---->"+university);
+
+        University university2 = iUniversityService.load(1);
+        System.out.println("---->"+university2);
+
+
+//        List<Canteen> canteens = university.getCanteens();
+//        for (Canteen canteen : canteens) {
+//            System.out.println(canteen.getCanteenName());
+//        }
     }
 }

@@ -33,7 +33,7 @@ public class University {
     @Column(name = "en_description", unique = true, columnDefinition = "mediumtext COMMENT '大学英文描述'")
     private String enDescription;
 
-    @OneToMany(targetEntity=Canteen.class, fetch=FetchType.EAGER)
+    @OneToMany(targetEntity=Canteen.class, cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     @JoinColumn(name="university_id", referencedColumnName="id")
     private List<Canteen> canteens;
 

@@ -12,6 +12,14 @@ import java.util.List;
 public interface IBaseDao<T> {
 
     /**
+     * 根据id加载一个实体
+     * @param id
+     * @param <T>
+     * @return
+     */
+    public <T> T load(Integer id);
+
+    /**
      * 加载所有信息
      * @return
      */
@@ -24,6 +32,12 @@ public interface IBaseDao<T> {
      */
     public <T> List<T> selectLimit(Integer num);
 
+    /**
+     * 根据id获取一个实体
+     * @param id
+     * @param <T>
+     * @return
+     */
     public <T> T get(Integer id);
 
     /**
