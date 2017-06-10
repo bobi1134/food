@@ -1,5 +1,7 @@
 package cn.mrx.food.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -26,13 +28,16 @@ public class University {
     private String universityEName;
 
     @Lob
-    @Column(name = "cn_description", unique = true,  columnDefinition = "mediumtext COMMENT '大学中文描述'")
+    @Column(name = "cn_description",  columnDefinition = "mediumtext COMMENT '大学中文描述'")
     private String cnDescription;
 
     @Lob
-    @Column(name = "en_description", unique = true, columnDefinition = "mediumtext COMMENT '大学英文描述'")
+    @Column(name = "en_description", columnDefinition = "mediumtext COMMENT '大学英文描述'")
     private String enDescription;
 
+    /**
+     * 大学和食堂 一对多关系
+     */
     @OneToMany(targetEntity=Canteen.class, cascade=CascadeType.ALL, fetch=FetchType.LAZY)
     @JoinColumn(name="university_id", referencedColumnName="id")
     private List<Canteen> canteens;
@@ -83,17 +88,5 @@ public class University {
 
     public void setCanteens(List<Canteen> canteens) {
         this.canteens = canteens;
-    }
-
-    @Override
-    public String toString() {
-        return "University{" +
-                "id=" + id +
-                ", universityCName='" + universityCName + '\'' +
-                ", universityEName='" + universityEName + '\'' +
-                ", cnDescription='" + cnDescription + '\'' +
-                ", enDescription='" + enDescription + '\'' +
-                ", canteens=" + canteens +
-                '}';
     }
 }

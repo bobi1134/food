@@ -43,7 +43,7 @@ public class UniversityController extends BaseController {
     }
 
     /**
-     * 根据id获取对应的大学
+     * 根据id获取对应的大学以及该大学下面的所有食堂
      * @return
      */
     @PostMapping("/get/{id}")

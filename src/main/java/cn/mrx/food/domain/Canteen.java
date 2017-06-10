@@ -1,6 +1,7 @@
 package cn.mrx.food.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * @ClassName: Canteen
@@ -23,6 +24,13 @@ public class Canteen {
 
     @Column(name = "university_id", columnDefinition = "int COMMENT '所属大学id'")
     private Integer universityId;
+
+    /**
+     * 食堂和菜品 一对多关系
+     */
+    @OneToMany(targetEntity=Dish.class, cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+    @JoinColumn(name="canteen_id", referencedColumnName="id")
+    private List<Dish> dishes;
 
     public Integer getId() {
         return id;
@@ -48,12 +56,11 @@ public class Canteen {
         this.universityId = universityId;
     }
 
-    @Override
-    public String toString() {
-        return "Canteen{" +
-                "id=" + id +
-                ", canteenName='" + canteenName + '\'' +
-                ", universityId=" + universityId +
-                '}';
+    public List<Dish> getDishes() {
+        return dishes;
+    }
+
+    public void setDishes(List<Dish> dishes) {
+        this.dishes = dishes;
     }
 }

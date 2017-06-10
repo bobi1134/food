@@ -50,4 +50,9 @@ public class CanteenTest {
         canteen.setUniversityId(2);
         System.out.println("---->"+iCanteenService.save(canteen));
     }
+
+    @Test
+    public void test2(){
+        System.out.println("---->"+iCanteenService.get(1));
+    }
 }

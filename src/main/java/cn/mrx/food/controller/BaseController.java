@@ -1,7 +1,6 @@
 package cn.mrx.food.controller;
 
-import cn.mrx.food.service.IUniversityService;
-import cn.mrx.food.service.IUserService;
+import cn.mrx.food.service.*;
 import cn.mrx.food.utils.ResultModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +35,12 @@ public class BaseController {
 
     @Autowired
     protected IUniversityService iUniversityService;
+
+    @Autowired
+    protected ICanteenService iCanteenService;
+
+    @Autowired
+    protected IDishService iDishService;
 
     /**
      * 必须的参数不足时异常处理
