@@ -1,5 +1,7 @@
 package cn.mrx.food.domain;
 
+import org.hibernate.annotations.DynamicInsert;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -12,6 +14,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "t_user")
+//@DynamicInsert
 public class User {
 
     @Id
@@ -19,22 +22,22 @@ public class User {
     @Column(columnDefinition = "int COMMENT '主键id'")
     private Integer id;
 
-    @Column(name = "user_name", unique = true, nullable = false, columnDefinition = "varchar(10) COMMENT '用户名'")
-    private String userName;
+    @Column(name = "email", unique = true, nullable = false, columnDefinition = "varchar(30) COMMENT '邮箱作为用户名'")
+    private String email;
 
-    @Column(name = "pwd", columnDefinition = "varchar(10) COMMENT '密码'")
+    @Column(name = "pwd", columnDefinition = "varchar(30) COMMENT '密码'")
     private String pwd;
 
-    @Column(name = "really_name", columnDefinition = "varchar(10) COMMENT '真实姓名'")
-    private String reallyName;
+    @Column(name = "nick_name", columnDefinition = "varchar(30) COMMENT '昵称姓名'")
+    private String nickName;
 
     @Column(name = "reg_time", columnDefinition = "timestamp default CURRENT_TIMESTAMP COMMENT '注册时间'")
     private Date regTime;
 
-    @Column(name = "enabled", columnDefinition = "int default -1 COMMENT '是否启用,-1未启用(默认),1启用'", insertable = false)
+    @Column(name = "enabled", columnDefinition = "int default -1 COMMENT '是否启用,-1未启用(默认),1启用'")
     private Integer enabled;
 
-    @Column(name = "role", columnDefinition = "int default 3 COMMENT '角色,1超级管理员,2网站管理员,3网站会员(默认)'", insertable = false)
+    @Column(name = "role", columnDefinition = "int default 3 COMMENT '角色,1超级管理员,2网站管理员,3网站会员(默认)'")
     private Integer role;
 
     public Integer getId() {
@@ -45,12 +48,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getEmail() {
+        return email;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPwd() {
@@ -61,12 +64,12 @@ public class User {
         this.pwd = pwd;
     }
 
-    public String getReallyName() {
-        return reallyName;
+    public String getNickName() {
+        return nickName;
     }
 
-    public void setReallyName(String reallyName) {
-        this.reallyName = reallyName;
+    public void setNickName(String nickName) {
+        this.nickName = nickName;
     }
 
     public Date getRegTime() {

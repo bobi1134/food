@@ -1,5 +1,7 @@
 package cn.mrx.food.dao;
 
+import cn.mrx.food.domain.User;
+
 import java.util.List;
 
 /**
@@ -46,5 +48,4 @@ public interface IBaseDao<T> {
      * @return
      */
     public Integer save(T t);
-
 }

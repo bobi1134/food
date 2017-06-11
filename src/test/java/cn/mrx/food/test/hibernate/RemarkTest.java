@@ -35,18 +35,19 @@ public class RemarkTest {
         remark.setUser(iUserService.get(1));
         System.out.println("---->"+iRemarkService.save(remark));
 
-//        remark.setRemarkContent("我也觉得！");
-//        remark.setDishId(1);
-//        user = new User();
-//        user.setId(1);
-//        remark.setUser(user);
-//        System.out.println("---->"+iRemarkService.save(remark));
-//
-//        remark.setRemarkContent("666");
-//        remark.setDishId(2);
-//        user = new User();
-//        user.setId(1);
-//        remark.setUser(user);
-//        System.out.println("---->"+iRemarkService.save(remark));
+        remark.setRemarkContent("我也觉得！");
+        remark.setDishId(1);
+        remark.setUser(iUserService.get(1));
+        System.out.println("---->"+iRemarkService.save(remark));
+
+        remark.setRemarkContent("666");
+        remark.setDishId(2);
+        remark.setUser(iUserService.get(2));
+        System.out.println("---->"+iRemarkService.save(remark));
+
+        remark.setRemarkContent("777");
+        remark.setDishId(2);
+        remark.setUser(iUserService.get(3));
+        System.out.println("---->"+iRemarkService.save(remark));
     }
 }

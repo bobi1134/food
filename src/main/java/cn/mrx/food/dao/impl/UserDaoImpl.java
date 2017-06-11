@@ -16,4 +16,14 @@ import java.util.List;
  */
 public class UserDaoImpl extends BaseDaoImpl<User> implements IUserDao {
 
+    /**
+     * 根据邮箱和密码查询用户
+     * @param email
+     * @param pwd
+     * @return
+     */
+    @Override
+    public List<User> selectUser(String email, String pwd) {
+        return (List<User>) getHibernateTemplate().find("from User where email=? and pwd=?", new Object[]{email, pwd});
+    }
 }

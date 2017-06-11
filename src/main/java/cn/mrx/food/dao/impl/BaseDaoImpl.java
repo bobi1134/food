@@ -1,6 +1,7 @@
 package cn.mrx.food.dao.impl;
 
 import cn.mrx.food.dao.IBaseDao;
+import cn.mrx.food.domain.User;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
