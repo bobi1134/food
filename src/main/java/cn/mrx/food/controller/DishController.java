@@ -1,5 +1,6 @@
 package cn.mrx.food.controller;
 
+import cn.mrx.food.domain.Dish;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -28,6 +29,20 @@ public class DishController extends BaseController{
     @PostMapping("/get/{id}")
     @ResponseBody
     public Object get(@PathVariable("id") Integer id){
+        return iDishService.get(id);
+    }
+
+    /**
+     * 点赞加1
+     * @param id
+     * @return
+     */
+    @PostMapping("/praiseNum/{id}")
+    @ResponseBody
+    public Object praiseNum(@PathVariable("id") Integer id){
+        Dish dish = iDishService.get(id);
+        dish.setPraiseNum(dish.getPraiseNum()+1);
+        iDishService.update(dish);
         return iDishService.get(id);
     }
 }

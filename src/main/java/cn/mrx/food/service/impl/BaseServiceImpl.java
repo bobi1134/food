@@ -86,4 +86,13 @@ public class BaseServiceImpl<M extends IBaseDao<T>, T> implements IBaseService<T
             throw new FoodException("save()方法出现异常！");
         }
     }
+
+    @Override
+    public void update(T t) {
+//        try {
+            iBaseDao.update(t);
+//        }catch (Exception e){
+//            throw new FoodException("update()方法出现异常！");
+//        }
+    }
 }

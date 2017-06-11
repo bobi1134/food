@@ -35,7 +35,7 @@ public class UserServiceImpl extends BaseServiceImpl<UserDaoImpl, User> implemen
         try {
             return iUserDao.selectUser(email, pwd);
         }catch (Exception e){
-            throw new FoodException("");
+            throw new FoodException("根据邮箱和密码查询用户出现异常！");
         }
     }
 }

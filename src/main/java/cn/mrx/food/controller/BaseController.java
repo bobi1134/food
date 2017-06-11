@@ -42,6 +42,9 @@ public class BaseController {
     @Autowired
     protected IDishService iDishService;
 
+    @Autowired
+    protected IRemarkService iRemarkService;
+
     /**
      * 必须的参数不足时异常处理
      * @param e

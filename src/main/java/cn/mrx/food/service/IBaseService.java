@@ -44,4 +44,6 @@ public interface IBaseService<T> {
      * @return
      */
     public Integer save(T t);
+
+    public void update(T t);
 }

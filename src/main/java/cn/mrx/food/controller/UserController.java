@@ -42,4 +42,15 @@ public class UserController extends BaseController {
             return newUser;
         }
     }
+
+    /**
+     * 根据id查询该用户
+     * @param id
+     * @return
+     */
+    @PostMapping("/get/{id}")
+    @ResponseBody
+    public Object get(@PathVariable("id") Integer id){
+        return iUserService.get(id);
+    }
 }

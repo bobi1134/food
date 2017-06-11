@@ -72,4 +72,11 @@ public class DishTest {
         dish.setCanteenId(5);
         System.out.println("---->"+iDishService.save(dish));
     }
+
+    @Test
+    public void test2(){
+        Dish dish = iDishService.get(1);
+        dish.setPraiseNum(dish.getPraiseNum()+1);
+        iDishService.update(dish);
+    }
 }
