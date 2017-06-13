@@ -1,7 +1,8 @@
 package cn.mrx.food.domain;
 
 import javax.persistence.*;
-import java.util.List;
+import java.io.Serializable;
+import java.util.Set;
 
 /**
  * @ClassName: Dish
@@ -12,31 +13,27 @@ import java.util.List;
  */
 @Entity
 @Table(name = "t_dish")
-public class Dish {
+public class Dish implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(columnDefinition = "int COMMENT '主键id'")
     private Integer id;
 
-    @Column(name = "dish_name", unique = true, columnDefinition = "varchar(20) COMMENT '菜品名称'")
+    @Column(name = "dish_name", columnDefinition = "varchar(20) COMMENT '菜品名称'")
     private String dishName;
 
     @Column(name = "dish_type", columnDefinition = "int COMMENT '菜品类别'")
     private Integer dishType;
 
+    @Column(name = "dish_img", columnDefinition = "varchar(100) COMMENT '菜品封面'")
+    private String dishImg;
+
     @Column(name = "praise_num", columnDefinition = "int default 0 COMMENT '点赞数'")
     private Integer praiseNum;
 
-    @Column(name = "canteen_id", columnDefinition = "int COMMENT '所属食堂id,1:今日特色,2:蔬菜类,3:肉类,4:小吃类'")
-    private int canteenId;
-
-    /**
-     * 菜品和评论 一对多关系
-     */
-    @OneToMany(targetEntity=Remark.class, cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-    @JoinColumn(name="dish_id", referencedColumnName="id")
-    private List<Remark> remarks;
+    @Column(name = "canteen_id", columnDefinition = "int COMMENT '食堂-外键id'")
+    private Integer canteenId;
 
     public Integer getId() {
         return id;
@@ -74,19 +71,31 @@ public class Dish {
         this.praiseNum = praiseNum;
     }
 
-    public int getCanteenId() {
+    public String getDishImg() {
+        return dishImg;
+    }
+
+    public void setDishImg(String dishImg) {
+        this.dishImg = dishImg;
+    }
+
+    public Integer getCanteenId() {
         return canteenId;
     }
 
-    public void setCanteenId(int canteenId) {
+    public void setCanteenId(Integer canteenId) {
         this.canteenId = canteenId;
     }
 
-    public List<Remark> getRemarks() {
-        return remarks;
-    }
-
-    public void setRemarks(List<Remark> remarks) {
-        this.remarks = remarks;
+    @Override
+    public String toString() {
+        return "Dish{" +
+                "id=" + id +
+                ", dishName='" + dishName + '\'' +
+                ", dishType=" + dishType +
+                ", dishImg='" + dishImg + '\'' +
+                ", praiseNum=" + praiseNum +
+                ", canteenId=" + canteenId +
+                '}';
     }
 }

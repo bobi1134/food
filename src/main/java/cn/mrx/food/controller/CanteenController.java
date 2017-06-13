@@ -22,13 +22,24 @@ public class CanteenController extends BaseController {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /**
-     * 根据id获取对应的食堂以及该食堂下的所有菜品
+     * 根据食堂id获取对应的食堂
      * @return
      */
     @PostMapping("/get/{id}")
     @ResponseBody
     public Object get(@PathVariable("id") Integer id){
         return iCanteenService.get(id);
+    }
+
+    /**
+     * 根据大学id获取对应的食堂
+     * @param id
+     * @return
+     */
+    @PostMapping("/selectCanteens/{id}")
+    @ResponseBody
+    public Object selectCanteens(@PathVariable("id") Integer id){
+        return iCanteenService.selectCanteens(id);
     }
 
 }

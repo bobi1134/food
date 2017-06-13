@@ -5,9 +5,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 /**
  * @ClassName: UniversityController
  * @Author: Mr.X
@@ -22,7 +19,7 @@ public class UniversityController extends BaseController {
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /**
-     * 指定查询前几条记录
+     * 指定获取前几条大学记录
      * @param num
      * @return
      */
@@ -43,7 +40,7 @@ public class UniversityController extends BaseController {
     }
 
     /**
-     * 根据id获取对应的大学以及该大学下面的所有食堂
+     * 根据大学id获取对应的大学
      * @return
      */
     @PostMapping("/get/{id}")

@@ -11,4 +11,14 @@ import cn.mrx.food.domain.Dish;
  * @Version 1.0
  */
 public class DishDaoImpl extends BaseDaoImpl<Dish> implements IDishDao {
+
+    /**
+     * 根据食堂id查询对应的菜品
+     * @param id
+     * @return
+     */
+    @Override
+    public Object selectCanteens(Integer id) {
+        return getHibernateTemplate().find("from Dish where canteenId=?", new Object[]{id});
+    }
 }

@@ -1,7 +1,10 @@
 package cn.mrx.food.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
-import java.util.List;
+import java.io.Serializable;
+import java.util.Set;
 
 /**
  * @ClassName: Canteen
@@ -12,7 +15,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "t_canteen")
-public class Canteen {
+public class Canteen implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,15 +25,11 @@ public class Canteen {
     @Column(name = "canteen_name", unique = true, columnDefinition = "varchar(20) COMMENT '食堂名称'")
     private String canteenName;
 
-    @Column(name = "university_id", columnDefinition = "int COMMENT '所属大学id'")
-    private Integer universityId;
+    @Column(name = "canteen_img", columnDefinition = "varchar(100) COMMENT '食堂封面'")
+    private String canteenImg;
 
-    /**
-     * 食堂和菜品 一对多关系
-     */
-    @OneToMany(targetEntity=Dish.class, cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-    @JoinColumn(name="canteen_id", referencedColumnName="id")
-    private List<Dish> dishes;
+    @Column(name = "university_id", columnDefinition = "int COMMENT '大学-外键id'")
+    private Integer universityId;
 
     public Integer getId() {
         return id;
@@ -48,6 +47,14 @@ public class Canteen {
         this.canteenName = canteenName;
     }
 
+    public String getCanteenImg() {
+        return canteenImg;
+    }
+
+    public void setCanteenImg(String canteenImg) {
+        this.canteenImg = canteenImg;
+    }
+
     public Integer getUniversityId() {
         return universityId;
     }
@@ -56,11 +63,13 @@ public class Canteen {
         this.universityId = universityId;
     }
 
-    public List<Dish> getDishes() {
-        return dishes;
-    }
-
-    public void setDishes(List<Dish> dishes) {
-        this.dishes = dishes;
+    @Override
+    public String toString() {
+        return "Canteen{" +
+                "id=" + id +
+                ", canteenName='" + canteenName + '\'' +
+                ", canteenImg='" + canteenImg + '\'' +
+                ", universityId=" + universityId +
+                '}';
     }
 }

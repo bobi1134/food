@@ -45,5 +45,9 @@ public interface IBaseService<T> {
      */
     public Integer save(T t);
 
+    /**
+     * 修改实体
+     * @param t
+     */
     public void update(T t);
 }

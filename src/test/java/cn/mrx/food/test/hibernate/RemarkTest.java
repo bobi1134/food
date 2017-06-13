@@ -2,6 +2,7 @@ package cn.mrx.food.test.hibernate;
 
 import cn.mrx.food.domain.Remark;
 import cn.mrx.food.domain.User;
+import cn.mrx.food.service.IDishService;
 import cn.mrx.food.service.IRemarkService;
 import cn.mrx.food.service.IUserService;
 import org.junit.Test;
@@ -24,30 +25,7 @@ public class RemarkTest {
     @Autowired
     private IRemarkService iRemarkService;
 
-    @Autowired
-    private IUserService iUserService;
-
     @Test
     public void test1(){
-        Remark remark = new Remark();
-        remark.setRemarkContent("哈哈哈！好吃！");
-        remark.setDishId(1);
-        remark.setUser(iUserService.get(1));
-        System.out.println("---->"+iRemarkService.save(remark));
-
-        remark.setRemarkContent("我也觉得！");
-        remark.setDishId(1);
-        remark.setUser(iUserService.get(1));
-        System.out.println("---->"+iRemarkService.save(remark));
-
-        remark.setRemarkContent("666");
-        remark.setDishId(2);
-        remark.setUser(iUserService.get(2));
-        System.out.println("---->"+iRemarkService.save(remark));
-
-        remark.setRemarkContent("777");
-        remark.setDishId(2);
-        remark.setUser(iUserService.get(3));
-        System.out.println("---->"+iRemarkService.save(remark));
     }
 }

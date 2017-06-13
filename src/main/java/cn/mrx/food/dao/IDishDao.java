@@ -10,4 +10,11 @@ import cn.mrx.food.domain.Dish;
  * @Version 1.0
  */
 public interface IDishDao extends IBaseDao<Dish> {
+
+    /**
+     * 根据食堂id查询对应的菜品
+     * @param id
+     * @return
+     */
+    public Object selectCanteens(Integer id);
 }

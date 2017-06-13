@@ -23,13 +23,24 @@ public class DishController extends BaseController{
     Logger logger = LoggerFactory.getLogger(this.getClass());
 
     /**
-     * 根据id获取对应的菜品信息及该菜品下面的所有评论
+     * 根据菜品id获取相应的菜品
      * @return
      */
     @PostMapping("/get/{id}")
     @ResponseBody
     public Object get(@PathVariable("id") Integer id){
         return iDishService.get(id);
+    }
+
+    /**
+     * 根据食堂id查询对应的菜品
+     * @param id
+     * @return
+     */
+    @PostMapping("/selectDishes/{id}")
+    @ResponseBody
+    public Object selectDishes(@PathVariable("id") Integer id){
+        return iDishService.selectCanteens(id);
     }
 
     /**

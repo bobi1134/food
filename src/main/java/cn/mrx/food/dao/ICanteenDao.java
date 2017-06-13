@@ -2,6 +2,8 @@ package cn.mrx.food.dao;
 
 import cn.mrx.food.domain.Canteen;
 
+import java.util.List;
+
 /**
  * @ClassName: ICanteenDao
  * @Author: Mr.X
@@ -10,4 +12,11 @@ import cn.mrx.food.domain.Canteen;
  * @Version 1.0
  */
 public interface ICanteenDao extends IBaseDao<Canteen>  {
+
+    /**
+     * 根据universityId查询对应的Canteens
+     * @param id
+     * @return
+     */
+   public Object selectCanteens(Integer id);
 }

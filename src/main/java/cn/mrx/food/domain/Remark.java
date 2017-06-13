@@ -1,6 +1,7 @@
 package cn.mrx.food.domain;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -12,7 +13,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "t_remark")
-public class Remark {
+public class Remark implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,12 +27,15 @@ public class Remark {
     @Column(name = "remark_time", columnDefinition = "timestamp default CURRENT_TIMESTAMP COMMENT '评论时间'")
     private Date remarkTime;
 
-    @Column(name = "dish_id", columnDefinition = "int COMMENT '所属菜品id'")
+    @Column(name = "dish_id", columnDefinition = "int COMMENT '菜品-外键id'")
     private Integer dishId;
 
-    @ManyToOne(targetEntity=User.class, cascade=CascadeType.ALL, fetch=FetchType.EAGER)
-    @JoinColumn(name="user_id", referencedColumnName="id")
+    @Column(name = "user_id", columnDefinition = "int COMMENT '用户-外键id'")
+    private Integer userId;
+
     private User user;
+
+    private Dish dish;
 
     public Integer getId() {
         return id;
@@ -65,11 +69,40 @@ public class Remark {
         this.dishId = dishId;
     }
 
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
+    }
+
     public User getUser() {
         return user;
     }
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Dish getDish() {
+        return dish;
+    }
+
+    public void setDish(Dish dish) {
+        this.dish = dish;
+    }
+
+    @Override
+    public String toString() {
+        return "Remark{" +
+                "id=" + id +
+                ", remarkContent='" + remarkContent + '\'' +
+                ", remarkTime=" + remarkTime +
+                ", dishId=" + dishId +
+                ", userId=" + userId +
+                ", user=" + user +
+                ", dish=" + dish +
+                '}';
     }
 }

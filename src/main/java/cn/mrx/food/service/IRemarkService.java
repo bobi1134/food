@@ -10,4 +10,12 @@ import cn.mrx.food.domain.Remark;
  * @Version 1.0
  */
 public interface IRemarkService extends IBaseService<Remark> {
+
+    /**
+     * 根据(菜品id=1|用户id=other)获取评论信息
+     * @param idType
+     * @param id
+     * @return
+     */
+    public Object selectRemarks(Integer idType, Integer id);
 }

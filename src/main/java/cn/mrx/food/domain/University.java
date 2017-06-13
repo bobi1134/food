@@ -1,9 +1,7 @@
 package cn.mrx.food.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import javax.persistence.*;
-import java.util.List;
+import java.io.Serializable;
 
 /**
  * @ClassName: University
@@ -14,7 +12,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "t_university")
-public class University {
+public class University implements Serializable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,7 +22,7 @@ public class University {
     @Column(name = "university_cn_name", unique = true, columnDefinition = "varchar(20) COMMENT '大学中文名称'")
     private String universityCName;
 
-    @Column(name = "university_en_name", unique = true, columnDefinition = "varchar(50) COMMENT '大学英文名称'")
+    @Column(name = "university_en_name", unique = true, columnDefinition = "varchar(150) COMMENT '大学英文名称'")
     private String universityEName;
 
     @Lob
@@ -35,12 +33,8 @@ public class University {
     @Column(name = "en_description", columnDefinition = "mediumtext COMMENT '大学英文描述'")
     private String enDescription;
 
-    /**
-     * 大学和食堂 一对多关系
-     */
-    @OneToMany(targetEntity=Canteen.class, cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-    @JoinColumn(name="university_id", referencedColumnName="id")
-    private List<Canteen> canteens;
+    @Column(name = "university_img", columnDefinition = "varchar(100) COMMENT '大学封面'")
+    private String universityImg;
 
     public Integer getId() {
         return id;
@@ -82,11 +76,23 @@ public class University {
         this.enDescription = enDescription;
     }
 
-    public List<Canteen> getCanteens() {
-        return canteens;
+    public String getUniversityImg() {
+        return universityImg;
     }
 
-    public void setCanteens(List<Canteen> canteens) {
-        this.canteens = canteens;
+    public void setUniversityImg(String universityImg) {
+        this.universityImg = universityImg;
+    }
+
+    @Override
+    public String toString() {
+        return "University{" +
+                "id=" + id +
+                ", universityCName='" + universityCName + '\'' +
+                ", universityEName='" + universityEName + '\'' +
+                ", cnDescription='" + cnDescription + '\'' +
+                ", enDescription='" + enDescription + '\'' +
+                ", universityImg='" + universityImg + '\'' +
+                '}';
     }
 }

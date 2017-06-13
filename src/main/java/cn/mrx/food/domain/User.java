@@ -1,9 +1,9 @@
 package cn.mrx.food.domain;
 
-import org.hibernate.annotations.DynamicInsert;
-
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
 /**
  * @ClassName: User
@@ -14,8 +14,7 @@ import java.util.Date;
  */
 @Entity
 @Table(name = "t_user")
-//@DynamicInsert
-public class User {
+public class User implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,6 +29,9 @@ public class User {
 
     @Column(name = "nick_name", columnDefinition = "varchar(30) COMMENT '昵称姓名'")
     private String nickName;
+
+    @Column(name = "img", columnDefinition = "varchar(100) COMMENT '头像'")
+    private String img;
 
     @Column(name = "reg_time", columnDefinition = "timestamp default CURRENT_TIMESTAMP COMMENT '注册时间'")
     private Date regTime;
@@ -94,5 +96,27 @@ public class User {
 
     public void setRole(Integer role) {
         this.role = role;
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", pwd='" + pwd + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", img='" + img + '\'' +
+                ", regTime=" + regTime +
+                ", enabled=" + enabled +
+                ", role=" + role +
+                '}';
     }
 }

@@ -10,4 +10,5 @@ import cn.mrx.food.domain.University;
  * @Version 1.0
  */
 public interface IUniversityService extends IBaseService<University> {
+
 }

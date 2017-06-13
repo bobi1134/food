@@ -2,6 +2,7 @@ package cn.mrx.food.test.hibernate;
 
 import cn.mrx.food.domain.Canteen;
 import cn.mrx.food.service.ICanteenService;
+import cn.mrx.food.service.IUniversityService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,37 +23,8 @@ public class CanteenTest {
     @Autowired
     private ICanteenService iCanteenService;
 
-    /**
-     * 插入食堂
-     */
     @Test
     public void test1(){
-        Canteen canteen = new Canteen();
-        canteen.setCanteenName("小木屋");
-        canteen.setUniversityId(1);
-        System.out.println("---->"+iCanteenService.save(canteen));
-        canteen.setCanteenName("杏苑");
-        canteen.setUniversityId(1);
-        System.out.println("---->"+iCanteenService.save(canteen));
-        canteen.setCanteenName("竹苑");
-        canteen.setUniversityId(1);
-        System.out.println("---->"+iCanteenService.save(canteen));
-        canteen.setCanteenName("桂苑");
-        canteen.setUniversityId(1);
-        System.out.println("---->"+iCanteenService.save(canteen));
-        canteen.setCanteenName("西园一餐厅");
-        canteen.setUniversityId(2);
-        System.out.println("---->"+iCanteenService.save(canteen));
-        canteen.setCanteenName("西园二餐厅");
-        canteen.setUniversityId(2);
-        System.out.println("---->"+iCanteenService.save(canteen));
-        canteen.setCanteenName("馨苑");
-        canteen.setUniversityId(2);
-        System.out.println("---->"+iCanteenService.save(canteen));
-    }
-
-    @Test
-    public void test2(){
         System.out.println("---->"+iCanteenService.get(1));
     }
 }

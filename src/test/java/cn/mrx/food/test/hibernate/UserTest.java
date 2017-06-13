@@ -31,68 +31,9 @@ public class UserTest {
 
     @Test
     public void test1(){
-        User user = new User();
-        user.setEmail("jxjy.ing@foxmail.com");
-        user.setNickName("Mr.X");
-        user.setPwd("111111");
-        user.setRole(1);
-        user.setEnabled(1);
-        System.out.println("---->"+iUserService.save(user));
-
-        user.setEmail("1451965355@qq.com");
-        user.setNickName("Old friend");
-        user.setPwd("111111");
-        user.setRole(2);
-        user.setEnabled(1);
-        System.out.println("---->"+iUserService.save(user));
-
-        user.setEmail("admin@qq.com");
-        user.setNickName("Admin");
-        user.setPwd("111111");
-        user.setRole(2);
-        user.setEnabled(1);
-        System.out.println("---->"+iUserService.save(user));
-
-        user.setEmail("test1@qq.com");
-        user.setNickName("测试账号1");
-        user.setPwd("111111");
-        user.setRole(3);
-        user.setEnabled(1);
-        System.out.println("---->"+iUserService.save(user));
-
-        user.setEmail("test2@qq.com");
-        user.setNickName("测试账号2");
-        user.setPwd("111111");
-        user.setRole(3);
-        user.setEnabled(-1);
-        System.out.println("---->"+iUserService.save(user));
-
-        user.setEmail("test3@qq.com");
-        user.setNickName("测试账号3");
-        user.setPwd("111111");
-        System.out.println("---->"+iUserService.save(user));
-
-    }
-
-    /**
-     * 查询
-     */
-    @Test
-    public void test2(){
         List<User> users = iUserService.loadAll();
         for (User user : users){
             System.out.println("------>"+user.getEmail());
         }
     }
-
-    @Test
-    public void test3(){
-        List<User> users = iUserService.selectUser("11451965355@qq.com", "111111");
-        if(users.size() == 1){
-            System.out.println("---->"+users.get(0).getNickName());
-        }else{
-            System.out.println("---->"+"no ... ");
-        }
-    }
-
 }

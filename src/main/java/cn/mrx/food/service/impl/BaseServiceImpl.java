@@ -87,12 +87,16 @@ public class BaseServiceImpl<M extends IBaseDao<T>, T> implements IBaseService<T
         }
     }
 
+    /**
+     * 修改实体
+     * @param t
+     */
     @Override
     public void update(T t) {
-//        try {
+        try {
             iBaseDao.update(t);
-//        }catch (Exception e){
-//            throw new FoodException("update()方法出现异常！");
-//        }
+        }catch (Exception e){
+            throw new FoodException("update()方法出现异常！");
+        }
     }
 }

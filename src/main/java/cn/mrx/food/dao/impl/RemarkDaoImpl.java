@@ -11,4 +11,16 @@ import cn.mrx.food.domain.Remark;
  * @Version 1.0
  */
 public class RemarkDaoImpl extends BaseDaoImpl<Remark> implements IRemarkDao {
+
+    /**
+     * 根据(菜品id=1|用户id=other)获取评论信息
+     * @param idType
+     * @param id
+     * @return
+     */
+    @Override
+    public Object selectRemarks(Integer idType, Integer id) {
+        if(idType==1) return getHibernateTemplate().find("from Remark where dish_id=?", new Object[]{id});
+        else return getHibernateTemplate().find("from Remark where user_id=?", new Object[]{id});
+    }
 }
