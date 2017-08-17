@@ -1,0 +1,59 @@
+/** my.css */
+ul{
+	list-style: none;
+}
+
+.ui.inverted.segment, .ui.primary.inverted.segment {
+    /*background:url(../imgs/bg1.jpg) repeat-y;*/
+    /*background-size:100% auto;*/
+   background-color: #1B1C1D;
+}
+
+@font-face {
+    font-family: Muli;
+    src: url(../fonts/Muli.ttf);
+}
+
+@font-face {
+    font-family: Ygyxs;
+    src: url(../fonts/ygyxs.ttf);
+}
+
+*{
+	font-family: Muli;
+}
+.ui.secondary.inverted.pointing.menu,
+.ui.secondary.inverted.pointing.menu .active.item,
+.ui.menu:not(.vertical) .item > .button,
+.ui.vertical.stripe h3,
+.ui.grid > .row,
+.masthead h2,
+.ui.primary.button,
+.ui.secondary.inverted.pointing.menu .item,
+.ui.menu > .grid, .ui.menu > .container,
+.ui.grid,
+.ui.inverted.header,
+.ui.visible.uncover.sidebar,
+.ui.buttons .button, .ui.buttons .or, .ui.button{
+	font-family: Muli;
+}
+
+.masthead h1.ui.header{
+	font-family: Ygyxs;
+}
+
+.ui.secondary.inverted.pointing.menu{
+	border-width: 0px;
+}
+
+.ui.text.container div{
+	margin-bottom: 2em;
+}
+
+.ui.text.container div:last-child{
+	margin-bottom: 0;
+}
+
+#unLogin-Following a{
+	color: #000;
+}

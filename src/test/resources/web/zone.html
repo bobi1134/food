@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<!-- Standard Meta -->
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+		<!-- Site Properties -->
+		<title>University Cafeteria Food Information Community | UCFI.Community | 高校食堂菜品信息社区</title>
+		<link rel="shortcut icon" href="imgs/favicon.ico">
+		<link rel="stylesheet" type="text/css" href="Semantic-UI/dist/components/reset.css">
+		<link rel="stylesheet" type="text/css" href="Semantic-UI/dist/components/site.css">
+		<link rel="stylesheet" type="text/css" href="Semantic-UI/dist/components/container.css">
+		<link rel="stylesheet" type="text/css" href="Semantic-UI/dist/components/grid.css">
+		<link rel="stylesheet" type="text/css" href="Semantic-UI/dist/components/header.css">
+		<link rel="stylesheet" type="text/css" href="Semantic-UI/dist/components/image.css">
+		<link rel="stylesheet" type="text/css" href="Semantic-UI/dist/components/menu.css">
+		<link rel="stylesheet" type="text/css" href="Semantic-UI/dist/components/divider.css">
+		<link rel="stylesheet" type="text/css" href="Semantic-UI/dist/components/dropdown.css">
+		<link rel="stylesheet" type="text/css" href="Semantic-UI/dist/components/segment.css">
+		<link rel="stylesheet" type="text/css" href="Semantic-UI/dist/components/button.css">
+		<link rel="stylesheet" type="text/css" href="Semantic-UI/dist/components/list.css">
+		<link rel="stylesheet" type="text/css" href="Semantic-UI/dist/components/icon.css">
+		<link rel="stylesheet" type="text/css" href="Semantic-UI/dist/components/sidebar.css">
+		<link rel="stylesheet" type="text/css" href="Semantic-UI/dist/components/transition.css">
+		<link rel="stylesheet" type="text/css" href="Semantic-UI/dist/semantic.css">
+		<!--自定义css-->
+		<link rel="stylesheet" type="text/css" href="css/common.css">
+		<link rel="stylesheet" type="text/css" href="css/zone.css">
+
+		<script src="Semantic-UI/assets/library/jquery.min.js"></script>
+		<script src="Semantic-UI/dist/components/visibility.js"></script>
+		<script src="Semantic-UI/dist/components/sidebar.js"></script>
+		<script src="Semantic-UI/dist/components/transition.js"></script>
+
+		<!--自定义js-->
+		<script type="text/javascript" src="js/common.js"></script>
+		<script type="text/javascript" src="js/zone.js"></script>
+	</head>
+
+	<body>
+		<!-- Following Menu -->
+		<div class="ui large top fixed hidden menu">
+			<div class="ui container">
+				<a class="active item" href="index.html">Home</a>
+				<a class="item" href="community.html">Community</a>
+				<a class="item">Company</a>
+				<a class="item">Careers</a>
+				<div class="right menu">
+					<div class="item">
+						<a class="ui button" href="login.html">Log in</a>
+					</div>
+					<div class="item">
+						<a class="ui primary button">Sign Up</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Sidebar Menu -->
+		<div class="ui vertical inverted sidebar menu">
+			<a class="active item" href="index.html">Home</a>
+			<a class="item" href="community.html">Community</a>
+			<a class="item">Company</a>
+			<a class="item">Careers</a>
+			<a class="item" href="login.html">Login</a>
+			<a class="item">Signup</a>
+		</div>
+		<!-- Page Contents -->
+		<div class="pusher">
+			<div class="ui inverted vertical masthead center aligned segment">
+				<div class="ui container">
+					<div class="ui large secondary inverted pointing menu">
+						<a class="toc item">
+							<i class="sidebar icon"></i>
+						</a>
+						<a class="active item" href="index.html">Home</a>
+						<a class="item" href="community.html">Community</a>
+						<a class="item">Company</a>
+						<a class="item">Careers</a>
+						<div class="right item">
+							<!--登录状态-->
+							<a class="ui inverted button" href="zone.html" style="margin: -2.5em 0em;display: none;" id="login">
+								<img src="Semantic-UI/assets/images/avatar/nan.jpg" class="ui avatar image">
+								<span>Mr.X</span>
+							</a>
+							<div style="margin: -2.5em 0em" id="unLogin">
+								<a class="ui inverted button" href="login.html">Log in</a>
+								<a class="ui inverted button">Sign Up</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!--xx-->
+				<h1 class="ui center aligned header" id="universityCName">个人 主页</h1>
+				<div class="ui container" style="text-align: left;">
+					<h2 class="ui dividing header" style="color: #fff;">Basic Information</h2>
+					<div class="ui positive message" id="id"></div>
+					<div class="ui info message" id="email"></div>
+					<div class="ui warning message" id="nickName"></div>
+					<div class="ui error message" id="regTime"></div>
+					<div class="ui positive message" id="enabled"></div>
+					<div class="ui info message" id="role"></div>
+
+					<h2 class="ui dividing header" style="color: #fff;">My Remarks</h2>
+					<div class="column">
+						<table class="ui right aligned table">
+							<thead>
+								<th class="left aligned">Id</th>
+								<th>RemarkContent</th>
+								<th>RemarkTime</th>
+								<th>DishName</th>
+							</thead>
+							<tbody id="myRemarkTable">
+								<!--
+									<tr>
+										<td class="left aligned">Delmar</td>
+										<td>36</td>
+										<td>36g</td>
+									</tr>
+								-->
+							</tbody>
+						</table>
+					</div>
+					
+					<div class="ui fluid large teal submit button" id="logoutBtn" style="margin-top: 15px;">Log Out</div>
+				</div>
+			</div>
+			<div class="ui inverted vertical footer segment">
+				<div class="ui container">
+					<div class="ui stackable inverted divided equal height stackable grid">
+						<div class="three wide column">
+							<h4 class="ui inverted header" title="关于">About</h4>
+							<div class="ui inverted link list">
+								<a href="#" class="item" title="网站地图">Sitemap</a>
+								<a href="#" class="item" title="联系我们">Contact Us</a>
+							</div>
+						</div>
+						<div class="three wide column">
+							<h4 class="ui inverted header">Services</h4>
+							<div class="ui inverted link list">
+								<a href="#" class="item">Food Infor Community</a>
+							</div>
+						</div>
+						<div class="three wide column">
+							<h4 class="ui inverted header">Friendship link</h4>
+							<div class="ui inverted link list">
+								<a href="#" class="item">Moon Community</a>
+								<a href="#" class="item">Mr.X Blog</a>
+								<a href="#" class="item">School Bus Ticket System</a>
+								<a href="#" class="item">Software Association</a>
+							</div>
+						</div>
+						<div class="seven wide column">
+							<h4 class="ui inverted header">Footer Header</h4>
+							<p title="我们的目标：为创建一流的高校食堂菜品信息社区而努力！">Our goal: to create first-class college cafeteria food information community and work!</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

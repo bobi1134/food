@@ -1,0 +1,84 @@
+/** my.css */
+.ui.inverted.segment, .ui.primary.inverted.segment {
+    /*background:url(../imgs/bg1.jpg) repeat-y;
+    background-size:100% auto;*/
+   /*background-color: #1B1C1D;*/
+}
+
+/** 字体区域 */
+@font-face {
+    font-family: Muli;
+    src: url(../fonts/Muli.ttf);
+}
+
+@font-face {
+    font-family: Ygyxs;
+    src: url(../fonts/ygyxs.ttf);
+}
+
+*{
+	font-family: Muli;
+}
+.ui.secondary.inverted.pointing.menu,
+.ui.secondary.inverted.pointing.menu .active.item,
+.ui.menu:not(.vertical) .item > .button,
+.ui.vertical.stripe h3,
+.ui.grid > .row,
+.masthead h2,
+.ui.primary.button,
+.ui.secondary.inverted.pointing.menu .item,
+.ui.menu > .grid, .ui.menu > .container,
+.ui.grid,
+.ui.inverted.header,
+.ui.visible.uncover.sidebar,
+.ui.buttons .button, .ui.buttons .or, .ui.button{
+	font-family: Muli;
+}
+
+.ui.secondary.inverted.pointing.menu{
+	border-width: 0px;
+}
+
+/** 其他样式 */
+.ui.three.cards{
+	margin-top: .5em;
+}
+
+.masthead h1.ui.header{
+	margin-top: .6em;
+	margin-bottom: .2em;
+	font-family: "Ygyxs";
+    font-size: 6em;
+}
+
+@media screen and (max-width: 479px) {
+    .ui.four.cards > .card{
+    	width: 100%;
+    }
+}
+
+ @media screen and (min-width: 480px) and (max-width: 767px){
+    .ui.four.cards > .card{
+    	width: 46.5%;
+    }
+}
+
+.ui.dividing.header{
+	text-align: left;
+	color: #FFF2F2;
+	border-bottom-color: #F0F0F0;
+}
+
+.ui.segments:last-child{
+	text-align: left;
+}
+
+.ui.inverted.segment .segment .date_user{
+    display: block;
+    text-align: right;
+    margin-bottom: -10px;
+}
+
+#praiseBtn{
+	cursor: pointer;
+}
